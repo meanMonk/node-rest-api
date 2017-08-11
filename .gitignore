@@ -1,1 +1,10 @@
-/node-modules
+src/
+dist/
+data/
+logs/
+node_modules/
+pm2/
+npm-debug.log
+.idea/
+.DS_Store
+*.iml

@@ -4,7 +4,8 @@
   "description": "This is demo repo for building rest api using node express and mongodb",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "gulp"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,10 @@
   "keywords": [
     "mean",
     "restapi",
-    "nodeapi"
+    "nodeapi",
+    "NodeJs",
+    "Express",
+    "mongoose"
   ],
   "author": "sahil kashetwar",
   "license": "ISC",

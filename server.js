@@ -6,18 +6,15 @@ var db = mongoose.connect('mongodb://localhost/nodeRestApi');
 
 var port = process.env.PORT || 3000;
 
-var productModel = require('./api/models/snp.model.js');
-
-
-
 var app = express();
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-var productRouter = require('./api/routes/snp.route.js')(productModel);
+var productRouter = require('./api/routes/snp.route.js')();
 
 app.use('/api', productRouter);
+
 
 app.get('/',function(req, res){
    res.send("node rest api is under development") 

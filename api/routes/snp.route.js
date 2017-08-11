@@ -1,23 +1,25 @@
-var express = require('express');
+const express = require('express');
+const productModel = require('../models/snp.model.js');
 
-var snpRoutes = function(Model){
+const snpRoutes = function(){
     
-    var snpController = require('../controller/snp.controller.js')(Model);
-    var snpRoute = express.Router()
+    const snpController = require('../controller/snp.controller.js')(productModel);
+    const snpRoute = express.Router();
 
     snpRoute.route('/products')
-    .get(snpController.getProduct)
+    .get(snpController.getProducts)
     .post(snpController.createProduct);
-    
-    
-    snpRoute.route('/products/:name')
-        .get(snpController.getProduct);
-        /*.put(snpController.updateProduct)
-        .delete(snpController.deleteProduct);*/
 
+    snpRoute.use('/products/:productId', snpController.middleware);
+
+    snpRoute.route('/products/:productId')
+        .get(snpController.getProduct)
+        .put(snpController.updateProduct)
+        .patch(snpController.patch)
+        .delete(snpController.deleteProduct);
         /*returning product and service routes*/
     return snpRoute;
     
-}
+};
 
 module.exports = snpRoutes;
