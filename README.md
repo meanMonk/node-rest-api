@@ -5,12 +5,13 @@ NODE-Rest-API is Developed using the next technologies
 * Mongoose
 * MongoDB
 
-#Rest API Starter using nodejs/express/mongoose
+This is the starter kit for developing the rest api using node/express/mongoose with mongodb.
 
-This is the starter kit for developing the rest api using node express and mongoose with mongodb.
-> We are using [GULP](https://gulpjs.com/)  as task runner.
-> Unit test we are using [MOCHA](https://mochajs.org/)
-> Integration test we are using [SuperTest](https://www.npmjs.com/package/supertest)
+> Task runner [GULP](https://gulpjs.com/)
+
+> Unit test using [MOCHA](https://mochajs.org/)
+
+> Integration test using [SuperTest](https://www.npmjs.com/package/supertest)
 
 ## File Structure
 We have tried to
