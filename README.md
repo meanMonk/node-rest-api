@@ -12,6 +12,29 @@ This is the starter kit for developing the rest api using node express and mongo
 > Unit test we are using [MOCHA](https://mochajs.org/)
 > Integration test we are using [SuperTest](https://www.npmjs.com/package/supertest)
 
+## File Structure
+We have tried to
+
+```
+node-rest-api/
+ ├──api/                                           * our api folder
+ |   ├──controller/                                * Controller contain all the helper functions
+ |          ├──snp.controller.js                   * service and products page controller
+ |          ├──snp.controller.spec.js              * test cases related to service and product controller will be here
+ |          └──coming soon                         * more controller file will be coming soon
+ |   ├──models/                                    * Models will hold all the schema for the db
+ |          ├──snp.model.js                        * Schema model for service and products model
+ |          └──coming soon                         * more model schema will be coming soon
+ |   ├──routes/                                    * Routes folder will hold all the routing related stuff
+ |          ├──snp.route.js                        * service and products page routes
+ |          └──coming soon                         * more routes will be coming soon
+ ├──server.js                             * application start file or server file
+ ├──package.json                          * what npm uses to manage it's dependencies
+ └──gulpfile.js                           * gulp configuration file
+
+```
+
+
 ###Quick Start
 
 **Make sure you have Node version >= 6.0 and NPM >= 3 also mongodb  and gulp is install on your machine**
@@ -57,5 +80,4 @@ This is the starter kit for developing the rest api using node express and mongo
     `localhost:8000/api/products/productId`
 
 ```
-
 
