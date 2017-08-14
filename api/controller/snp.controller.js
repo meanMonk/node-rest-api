@@ -9,19 +9,37 @@ const snpController = function(snpModel){
            if(err){
                res.status(401).send(err);
            }else {
-               res.json(products);
+               var returnProducts = [];
+                products.forEach((product, index) => {
+                   var newProduct = product.toJSON();
+                   newProduct.links = {};
+                   newProduct.links.self = 'http://' + req.headers.host + '/api/products/' + newProduct._id;
+                   returnProducts.push(newProduct);
+               });
+               res.json(returnProducts);
            }
         });
     };
 
     const getProduct = function (req, res) {
-        res.json(req.product);
+        /*adding the filter by links in the response*/
+
+        var productNode = req.product.toJSON();
+        productNode.links = {};
+        productNode.links.filter = 'http://' + req.headers.host + '/api/products/?name=' + productNode.name;
+        res.json(productNode);
     };
 
     const create = function(req, res){
         const productNode = new snpModel(req.body);
-        productNode.save();
-        res.status(201).send(productNode);
+        if(!req.body.name){
+            res.status(400);
+            res.send('Name is required');
+        }else {
+            productNode.save();
+            res.status(201);
+            res.send(productNode);
+        }
     };
 
     const update = function (req, res) {

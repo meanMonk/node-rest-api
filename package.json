@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "gulp"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -26,13 +26,19 @@
   },
   "homepage": "https://github.com/meanMonk/node-rest-api#readme",
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "gulp-env": "^0.4.0",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cron": "^1.2.1",
     "express": "^4.15.4",
     "gulp": "^3.9.1",
+    "gulp-mocha": "^4.3.1",
     "gulp-nodemon": "^2.2.1",
-    "mongoose": "^4.11.6"
+    "mongoose": "^4.11.6",
+    "should": "^11.2.1",
+    "sinon": "^3.2.0"
   }
 }

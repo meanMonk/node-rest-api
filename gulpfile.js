@@ -1,8 +1,11 @@
-var gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
+const gulp = require('gulp');
+const Nodemon = require('gulp-nodemon');
+const GulpMocha = require('gulp-mocha');
+const env = require('gulp-env');
+const supertest = require('supertest');
 
 gulp.task('default', function(){
-   nodemon({
+    Nodemon({
        script: 'server.js',
        ext: 'js',
        env: {
@@ -13,4 +16,17 @@ gulp.task('default', function(){
    .on('restart', function(){
       console.log('Restarting a server');
    });
+});
+
+gulp.task('test', function () {
+   gulp.src('api/controller/*.spec.js', {read : false})
+       .pipe(GulpMocha({ reporter : 'nyan'}))
+});
+
+gulp.task('funcTest', function () {
+      env( {
+            vars : { ENV : 'test'}
+         });
+    gulp.src('api/integration-spec/*.funcspec.js', {read : false})
+        .pipe(GulpMocha({ reporter : 'nyan'}))
 });
